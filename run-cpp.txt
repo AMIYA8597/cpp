@@ -1,0 +1,5 @@
+g++ -o kth_smallest kth_smallest.cpp
+
+
+g++ -o kth_smallest .\kth_smallest.cpp mconsole
+

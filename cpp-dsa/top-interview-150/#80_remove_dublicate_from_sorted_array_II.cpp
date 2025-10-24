@@ -82,33 +82,29 @@ public:
 
 
 
+int main() {
+    Solution sol;
 
+    vector<int> nums1 = {1,1,1,2,2,3};
+    int k1 = sol.removeDuplicates(nums1);
+    cout << "k = " << k1 << "\nnums = ";
+    for (int i = 0; i < k1; i++) cout << nums1[i] << " ";
+    cout << endl;
 
+    vector<int> nums2 = {0,0,1,1,1,1,2,3,3};
+    int k2 = sol.removeDuplicates(nums2);
+    cout << "k = " << k2 << "\nnums = ";
+    for (int i = 0; i < k2; i++) cout << nums2[i] << " ";
+    cout << endl;
 
+    return 0;
+}
 
 
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
 
-        int expected_vals = 2;
 
-        if(nums.size() == 1){
-            return 1;
-        }
-        else if(nums.size() == 2){
-            return 2;
-        }
 
 
-        for(int i = 2; i < nums.size(); i++){
-            if(nums[i] != nums[expected_vals-2]){
-                nums[expected_vals++] = nums[i];
-            }
-        }
-    return expected_vals;
-    }
-};
 
 
 
@@ -120,36 +116,33 @@ public:
 
 
 
+// class Solution {
+// public:
+//     int removeDuplicates(vector<int>& nums) {
 
+//         int expected_vals = 2;
 
+//         if(nums.size() == 1){
+//             return 1;
+//         }
+//         else if(nums.size() == 2){
+//             return 2;
+//         }
 
 
+//         for(int i = 2; i < nums.size(); i++){
+//             if(nums[i] != nums[expected_vals-2]){
+//                 nums[expected_vals++] = nums[i];
+//             }
+//         }
+//     return expected_vals;
+//     }
+// };
 
 
 
 
 
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        vector<int> temp;
-        int n=nums.size();
-        for(int i=2;i<nums.size();i++){
-            if(nums[i]==nums[i-1] && nums[i]==nums[i-2]){
-                nums.erase(nums.begin()+i);
-                i=i-1;
-            }
-        }return nums.size();
-    }
-};
-#define LC_HACK
-#ifdef LC_HACK
-const auto __ = []() {
-  struct ___ { static void _() { std::ofstream("display_runtime.txt") << 1 << '\n'; } };
-  std::atexit(&___::_);
-  return 0;
-}();
-#endif
 
 
 
@@ -163,24 +156,29 @@ const auto __ = []() {
 
 
 
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        int k =2;
-        if(nums.size()<=2) return nums.size();
 
-        for(int i=2; i<nums.size(); i++)
-        {
-            if(nums[i] != nums[k-2])
-            {
-                nums[k] = nums[i];
-                k++;
-            }
-        }
-        return k;
-    }
-};
 
+// class Solution {
+// public:
+//     int removeDuplicates(vector<int>& nums) {
+//         vector<int> temp;
+//         int n=nums.size();
+//         for(int i=2;i<nums.size();i++){
+//             if(nums[i]==nums[i-1] && nums[i]==nums[i-2]){
+//                 nums.erase(nums.begin()+i);
+//                 i=i-1;
+//             }
+//         }return nums.size();
+//     }
+// };
+// #define LC_HACK
+// #ifdef LC_HACK
+// const auto __ = []() {
+//   struct ___ { static void _() { std::ofstream("display_runtime.txt") << 1 << '\n'; } };
+//   std::atexit(&___::_);
+//   return 0;
+// }();
+// #endif
 
 
 
@@ -194,32 +192,28 @@ public:
 
 
 
+// class Solution {
+// public:
+//     int removeDuplicates(vector<int>& nums) {
+//         int k =2;
+//         if(nums.size()<=2) return nums.size();
 
+//         for(int i=2; i<nums.size(); i++)
+//         {
+//             if(nums[i] != nums[k-2])
+//             {
+//                 nums[k] = nums[i];
+//                 k++;
+//             }
+//         }
+//         return k;
+//     }
+// };
 
 
 
 
 
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        int n=nums.size();
-        if(n<3)
-        {
-            return n;
-        }
-        int k=2;
-        for(int i=2;i<n;i++)
-        {
-            if(nums[i]!=nums[k-2])
-            {
-                nums[k]=nums[i];
-                k++;
-            }
-        }
-        return k;
-    }
-};
 
 
 
@@ -235,31 +229,66 @@ public:
 
 
 
+// class Solution {
+// public:
+//     int removeDuplicates(vector<int>& nums) {
+//         int n=nums.size();
+//         if(n<3)
+//         {
+//             return n;
+//         }
+//         int k=2;
+//         for(int i=2;i<n;i++)
+//         {
+//             if(nums[i]!=nums[k-2])
+//             {
+//                 nums[k]=nums[i];
+//                 k++;
+//             }
+//         }
+//         return k;
+//     }
+// };
 
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        size_t i = 0;
-        size_t res = 1;
-        size_t cnt = 1;
 
-        for (size_t j = 1; j < nums.size(); ++j)
-        {
-            if (cnt < 2 || nums[j] != nums[i])
-            {
-                if (nums[j] != nums[i])
-                {
-                    cnt = 1;
-                }
-                else
-                {
-                    cnt += 1;                    
-                }
-                res += 1;
-                i += 1;
-                nums[i] = nums[j];
-            }
-        }
-        return res;
-    }
-};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// class Solution {
+// public:
+//     int removeDuplicates(vector<int>& nums) {
+//         size_t i = 0;
+//         size_t res = 1;
+//         size_t cnt = 1;
+
+//         for (size_t j = 1; j < nums.size(); ++j)
+//         {
+//             if (cnt < 2 || nums[j] != nums[i])
+//             {
+//                 if (nums[j] != nums[i])
+//                 {
+//                     cnt = 1;
+//                 }
+//                 else
+//                 {
+//                     cnt += 1;                    
+//                 }
+//                 res += 1;
+//                 i += 1;
+//                 nums[i] = nums[j];
+//             }
+//         }
+//         return res;
+//     }
+// };

@@ -78,27 +78,47 @@ public:
 
 
 
+int main() {
+    Solution sol;
+    vector<int> nums = {0,0,1,1,1,2,2,3,3,4};
+    int k = sol.removeDuplicates(nums);
+
+    cout << "k = " << k << endl;
+    cout << "Unique elements: ";
+    for (int i = 0; i < k; i++) cout << nums[i] << " ";
+    cout << endl;
+
+    return 0;
+}
 
 
 
 
-class Solution {
-public:
-    int removeDuplicates(std::vector<int>& nums) {
-        if (nums.empty()) {
-            return 0;
-        }
+
+
+
+
+
+
+
+
+// class Solution {
+// public:
+//     int removeDuplicates(std::vector<int>& nums) {
+//         if (nums.empty()) {
+//             return 0;
+//         }
         
-        int insertIndex = 1;
-        for (int i = 1; i < nums.size(); i++) {
-            if (nums[i] != nums[insertIndex - 1]) {
-                nums[insertIndex] = nums[i];
-                insertIndex++;
-            }
-        }
-        return insertIndex;
-    }
-};
+//         int insertIndex = 1;
+//         for (int i = 1; i < nums.size(); i++) {
+//             if (nums[i] != nums[insertIndex - 1]) {
+//                 nums[insertIndex] = nums[i];
+//                 insertIndex++;
+//             }
+//         }
+//         return insertIndex;
+//     }
+// };
 
 
 
@@ -110,18 +130,18 @@ public:
 
 
 
-#include<iostream>
-#include<algorithm>
-using namespace std;
-class Solution {
-public:
-    int removeDuplicates(vector<int>& num) {
-    auto end = unique(num.begin(), num.end());  
-    num.erase(end, num.end());                
-    return num.size();  
+// #include<iostream>
+// #include<algorithm>
+// using namespace std;
+// class Solution {
+// public:
+//     int removeDuplicates(vector<int>& num) {
+//     auto end = unique(num.begin(), num.end());  
+//     num.erase(end, num.end());                
+//     return num.size();  
       
-    }
-};
+//     }
+// };
 
 
 
@@ -137,32 +157,30 @@ public:
 
 
 
-class Solution {
-public:
-	int removeDuplicates(vector<int>& nums) {
-		int n = nums.size();
-		int k = 0;
+// class Solution {
+// public:
+// 	int removeDuplicates(vector<int>& nums) {
+// 		int n = nums.size();
+// 		int k = 0;
 
-		for (int i = n - 1; i >= 0; i--) {
-			if (i != 0 && nums[i] == nums[i - 1]) {
-				if (i != n - 1) {
-					int l = i;
+// 		for (int i = n - 1; i >= 0; i--) {
+// 			if (i != 0 && nums[i] == nums[i - 1]) {
+// 				if (i != n - 1) {
+// 					int l = i;
 
-					for (int j = 0; j < k; j++) {
-						swap(nums[l], nums[l + 1]);
-						l++;
-					}
-				}
-			}
+// 					for (int j = 0; j < k; j++) {
+// 						swap(nums[l], nums[l + 1]);
+// 						l++;
+// 					}
+// 				}
+// 			}
 
-			else k++;
-		}
+// 			else k++;
+// 		}
 
-		return k;
-	}
-};
-
-
+// 		return k;
+// 	}
+// };
 
 
 
@@ -177,22 +195,24 @@ public:
 
 
 
-class Solution {
-public:
-    int removeDuplicates(vector<int>& nums) {
-        if(nums.size()==1){
-            return 1;
-        }
 
-        int slow=0, fast=0;
 
-        while(fast<nums.size()){
-            if(nums[slow]!=nums[fast]){
-                slow++;
-                nums[slow]=nums[fast];
-            }
-            fast++;
-        }
-        return slow+1;
-    }
-};
+// class Solution {
+// public:
+//     int removeDuplicates(vector<int>& nums) {
+//         if(nums.size()==1){
+//             return 1;
+//         }
+
+//         int slow=0, fast=0;
+
+//         while(fast<nums.size()){
+//             if(nums[slow]!=nums[fast]){
+//                 slow++;
+//                 nums[slow]=nums[fast];
+//             }
+//             fast++;
+//         }
+//         return slow+1;
+//     }
+// };

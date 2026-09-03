@@ -56,3 +56,208 @@ Constraints:
 1 <= n == nums1.length <= 105
 1 <= nums1[i] <= 109
 nums1 consists of distinct integers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ class Solution {
+public:
+    bool uniformArray(vector<int>& nums1) {
+        int smallestOdd = INT_MAX;
+
+        for (int x : nums1) {
+            if (x % 2 == 1) {
+                smallestOdd = min(smallestOdd, x);
+            }
+        }
+
+        if (smallestOdd == INT_MAX) {
+            return true;
+        }
+
+        for (int x : nums1) {
+            if (x % 2 == 0 && x <= smallestOdd) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Solution {
+public:
+    bool uniformArray(vector<int>& arr) {
+        int n=arr.size();
+        int e=0;
+        int o=0;
+        int smallest_odd=INT_MAX;
+        for(int i=0;i<n;i++){
+            if(arr[i]%2==0) e++;
+            else {
+                o++;
+                smallest_odd=min(smallest_odd,arr[i]);
+            }
+        }
+        if(e==n) return true;
+        else if(o==n) return true;
+        else {
+           for(int i=0;i<n;i++){
+               if(arr[i] % 2==0){
+                   if(arr[i]<smallest_odd) return false;
+               }
+           } 
+        }
+    return true;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Solution {
+public:
+    bool uniformArray(vector<int>& nums1) {
+        int n=nums1.size(),mn=INT_MAX;
+        for (int i:nums1) {
+            if ((i%2) == 1) {
+                mn = min(mn, i);
+            }
+        }
+        if (mn == INT_MAX)return true;
+        for (int x : nums1) {
+            if (x % 2 == 0 && x < mn)
+            return false;
+        }
+        return true;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Solution {
+public:
+    bool uniformArray(vector<int>& nums1) {
+        int mn = *min_element(nums1.begin(), nums1.end());
+        if (mn % 2 == 1)
+            return true;
+        for (int x : nums1) {
+            if (x % 2 == 1)
+                return false;
+        }
+        return true;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Solution {
+public:
+bool uniformArray(vector<int>& nums1) {
+    int mn = *min_element(nums1.begin(), nums1.end());
+    if (mn & 1) return true; 
+    for (int x : nums1) {
+        if (x & 1) return false;
+    }
+    return true; 
+}
+};
